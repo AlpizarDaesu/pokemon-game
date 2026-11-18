@@ -6,8 +6,13 @@
 
     <section v-else class="flex flex-col justify-center items-center w-screen h-screen">
         <h1 class="mt-5 text-white">¿Quién es este Pokémon?</h1>
+        <h3 class="capitalize">{{  gameStatus }}</h3>
         <!-- Pokémon Picture -->
-        <PokemonPicture v-if="pokemonToGuess" :pokemon="pokemonToGuess" />
+        <PokemonPicture
+            v-if="pokemonToGuess"
+            :pokemon="pokemonToGuess"
+            :show-pokemon="gameStatus === GameStatus.Won"
+        />
         <!-- Pokémon Options-->
         <PokemonOptions
             :pokemons="pokemonOptions"
